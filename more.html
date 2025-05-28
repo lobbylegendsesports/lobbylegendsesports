@@ -1,27 +1,76 @@
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://kit.fontawesome.com/8aa17a250d.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="loader.css">
 <style>
-    #loader { display: flex;}
-    .profile > p > strong { font-weight: 400;}
-    .profile { display: flex; align-items: center; justify-items: center; flex-direction: column;}
-    .profile > p { display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 15px;}
-    .profile > p > span { font-size: 20px;}
-    .point { margin: 0px 0px 30px 0px; display: flex; align-items: center; justify-content: space-around;}
-    .profile > i { margin: 20% 0 0 0; font-size: 40px; padding: 10px; border-radius: 125px; border: 1px solid; width: 70px; height: 70px; display: flex; align-items: center; justify-content: center;}
-    .point > p { display: flex; align-items: center; justify-content: center; flex-direction: column; background: #022952; width: 80px; border-radius: 8px; padding: 10px;}
-    .point > p > strong { font-weight: 300;}
-    .links { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
-    .links-help { display: flex; gap: 10px; }
-    .links-help > a { color: #fff; gap: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 80px; background: #022952; padding: 10px; border-radius: 12px; }
-    a > i { display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 125px; background: #031d38; padding: 10px; display: flex; font-size: 24px;}
-    .logout { margin: 20px; }
-    #logoutBtn { border-radius: 125px; border: none; background: #ff0000; padding: 8px; width: 120px; font-size: 18px; text-transform: uppercase; font-weight: 400; font-family: "Work Sans", serif; color: #fff;}
+    #loader { display: flex; }
+    body { background: #eee6df; }
+    .profile > img { width: 110px; border: 10px solid #101e40; border-radius: 125px; }
+    .point > p > span { color: #009cd1; font-weight: 700; font-size: 20px; }
+    .links { margin: 25px 15px; }
+    .links-help { 
+        display: flex;
+        gap: 15px;
+        flex-direction: column;
+    }
+    .links-help > a {
+        display: flex;
+        align-items: center;
+        padding: 12px;
+        gap: 10px;
+        border-radius: 4px;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        background: #fffff6;
+    }
+    .color { 
+        background: #101e40;
+        height: 120px;
+     }
+     .profile { 
+        display: flex;
+        align-items: center; 
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+        margin: -50px 0 0 0;
+     }
+     i {
+        font-size: 20px;
+        color: #01a0de;
+     }
+     .baap {
+        text-align: center;
+        font-size: 26px;
+        margin: 15px 0;
+        font-weight: 500;
+        color: #06070b;
+     }
+     .point { 
+        background: #fffff6;
+        margin: 0 15px;
+        display: flex;
+        justify-content: space-evenly;
+        border-radius: 8px;
+        padding: 25px 10px;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+     }
+     .links-help > a > span {
+        font-size: 20px;
+        font-weight: 600;
+        color: #797471;
+     }
+     .point > p {
+        display: flex;
+        flex-direction: column-reverse;
+        color: #78786e;
+        align-items: center;
+        justify-content: center;
+     }
 </style>
-
 <div class="container">
     <div id="userInfo" class="info"></div>
     <div id="loader">
@@ -50,13 +99,16 @@
                 $("#userInfo").html("<p style='color: red;'>" + data.error + "</p>");
             } else {
                 $("#userInfo").html(`
+                <div class="color"></div>
                 <div class="profile">
-                    <i class="fa-solid fa-user"></i>
-                    <p><strong>Welcome,</strong> <span>${data.name}</span></p>
+                    <img src="https://cdn-icons-png.flaticon.com/512/4128/4128244.png">
                 </div>
+                <p class="baap"><span><strong>${data.name}</strong></span></p>
                 <div class="point">
                     <p><strong>Coins</strong><span> ${data.coins}</span></p>
+                    <hr />
                     <p><strong>Reffered</strong><span> ${data.referred}</span></p>
+                    <hr />
                     <p><strong>Status</strong><span> ${data.status}</span></p>
                 </div>
                 <div class="links">
@@ -73,25 +125,18 @@
                             <i class="fa-solid fa-arrow-rotate-left" style="display: flex;"></i>
                             <span>History</span>
                         </a>
-                    </div>
-                    <div class="links-help">
                         <a href="leaderboard.html">
                             <i class="fa-solid fa-chart-simple" style="display: flex;"></i>
                             <span>Players</span>
                         </a>
-                        <a href="https://wa.me/918987726266">
+                        <a href="http://wa.me/919797589724">
                             <i class="fa-solid fa-headphones-simple" style="display: flex;"></i>
                             <span>Support</span>
                         </a>
-                        <a href="refer.html">
-                            <i class="fa-solid fa-gift" style="display: flex;"></i>
-                            <span>Refer</span>
-                        </a>
+                        <a id="logoutBtn">
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                            <span>Logout</span></a>
                     </div>
-                </div>
-                <div class="logout">
-                        <button id="logoutBtn">Logout</button>
-                </div>
                 `);
 
                 $("#logoutBtn").click(function() {
