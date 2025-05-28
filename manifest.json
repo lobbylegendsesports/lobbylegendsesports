@@ -1,0 +1,22 @@
+{
+    "name": "LOBBY LEGENDS ESPORTS",
+    "short_name": "LOBBY LEGENDS ESPORTS",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#22293b",
+    "theme_color": "#22293b",
+    "description": "LOBBY LEGENDS ESPORTS Web App",
+    "icons": [
+      {
+        "src": "https://i.ibb.co/1YdpCYk8/icon.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "https://i.ibb.co/1YdpCYk8/icon.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }
+  
